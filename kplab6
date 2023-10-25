@@ -1,0 +1,42 @@
+# krish patel
+def encode(password):
+    encoded_list = []
+    encoded_string = ''
+    for i in range(0, len(password)):
+        encoded_list.append(int(password[i]))
+    for j in range(0, len(encoded_list)):
+        encoded_list[j] += 3
+        if encoded_list[j] >= 10:
+            encoded_list[j] -= 10
+        encoded_string += str(encoded_list[j])
+    return encoded_string
+
+def decode(password):
+    pass
+
+def main():
+    game_status = True
+    final_encode = ''
+    final_decode = ''
+    while game_status:
+        print("Menu")
+        print("-------------")
+        print("1. Encode")
+        print("2. Decode")
+        print("3. Quit")
+        print()
+        option = int(input("Please enter an option: "))
+        if option == 1:
+            entry_encode = input("Please enter your password to encode: ")
+            final_encode = encode(entry_encode)
+            print("Your password has been encoded and stored!")
+            print()
+        if option == 2:
+            final_decode = decode(final_encode)
+            print(f"The encoded password is {final_encode}, and the original password is {final_decode}")
+            print()
+        if option == 3:
+            game_status = False
+
+if __name__ == "__main__":
+    main()
